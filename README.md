@@ -7,3 +7,5 @@ You're welcome to download, fork or do whatever else legal with all the files! T
 ## In This Section
 
 ### 1 Intro, Notes & Section 4 Assets ###
+
+### 2 S04 Game Design Document (GDD) ###
