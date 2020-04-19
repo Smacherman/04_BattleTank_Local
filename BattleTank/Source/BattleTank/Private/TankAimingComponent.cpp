@@ -2,6 +2,7 @@
 
 #include "Kismet/GameplayStatics.h"
 #include "BattleTank/BattleTank.h"
+#include "TankBarrel.h"
 #include "TankAimingComponent.h"
 
 
@@ -11,12 +12,12 @@ UTankAimingComponent::UTankAimingComponent()
     // Set this component to be initialized when the game starts, and to be ticked every frame.  You can turn these features
     // off to improve performance if you don't need them.
     // bWantsBeginPlay = true;
-    PrimaryComponentTick.bCanEverTick = true;
+    PrimaryComponentTick.bCanEverTick = true; // TODO: Should this really tick?
 
     // ...
 }
 
-void UTankAimingComponent::SetBarrelReference(UStaticMeshComponent* BarrelToSet)
+void UTankAimingComponent::SetBarrelReference(UTankBarrel* BarrelToSet)
 {
     Barrel = BarrelToSet;
 }
@@ -42,6 +43,14 @@ void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
     {
         auto AimDirection = OutLaunchVelocity.GetSafeNormal();
         MoveBarrelTowards(AimDirection);
+        auto Time = GetWorld()->GetTimeSeconds();
+        UE_LOG(LogTemp, Warning, TEXT("%f: Aim solution found"), Time);
+    }
+        else
+    {
+        auto Time = GetWorld()->GetTimeSeconds();
+        UE_LOG(LogTemp, Warning, TEXT("%f: No aim solve found"), Time);
+
     }
     // If no solution found do nothing
     }
@@ -52,10 +61,10 @@ void UTankAimingComponent::MoveBarrelTowards(FVector AimDirection)
     auto BarrelRotator = Barrel->GetForwardVector().Rotation();
     auto AimAsRotator = AimDirection.Rotation();
     auto DeltaRotator = AimAsRotator - BarrelRotator;
-    UE_LOG(LogTemp, Warning, TEXT("AimAsRotator: %s"), *DeltaRotator.ToString());
+    
+    
+    Barrel->Elevate(5); // TODO remove magic number
 
-    // Move the barrel the right amount this frame
-    // Given a max elevation speed, and the frame time
 
 
 }
