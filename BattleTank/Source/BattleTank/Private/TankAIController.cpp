@@ -8,7 +8,7 @@
 void ATankAIController::BeginPlay()
 {
     Super::BeginPlay();
-
+/*
     auto PlayerTank = GetPlayerTank();
     if (!PlayerTank)
     {
@@ -17,6 +17,21 @@ void ATankAIController::BeginPlay()
     else
     {
         UE_LOG(LogTemp, Warning, TEXT("AIController found player: %s"), *(PlayerTank->GetName()));
+    } */
+}
+
+// Called every frame
+void ATankAIController::Tick(float DeltaTime)
+{
+    Super::Tick(DeltaTime);
+    if (GetPlayerTank())
+    {
+        // TODO Move towards the player
+        
+        // Aim towards the player
+        GetControlledTank()->AimAt(GetPlayerTank()->GetActorLocation());
+
+        // Fire if ready
     }
 }
 
