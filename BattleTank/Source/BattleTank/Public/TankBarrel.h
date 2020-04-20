@@ -1,9 +1,11 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
-
+#include "Tank.h"
 #include "Components/StaticMeshComponent.h"
 #include "TankBarrel.generated.h"
+
+// class ATank;
 
 /**
  *
@@ -20,7 +22,7 @@ public:
 
 private:
     UPROPERTY(EditAnywhere, Category = Setup)
-    float MaxDegreesPerSecond = 20;
+    float MaxDegreesPerSecond = 5;
     
     UPROPERTY(EditAnywhere, Category = Setup)
     float MaxElevationDegrees = 40;
