@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Copyright Experience 360 LLC 2020
 
 #pragma once
 
@@ -20,7 +20,7 @@ public:
 
 
 private:
-    UPROPERTY(EditDefaultsOnly, Category = Setup)
+    UPROPERTY(EditDefaultsOnly, Category = "Setup")
     float MaxDegreesPerSecond = 25;
 
  

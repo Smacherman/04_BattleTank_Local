@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Copyright Experience 360 LLC 2020
 
 #pragma once
 #include "Tank.h"
@@ -21,13 +21,13 @@ public:
 
 
 private:
-    UPROPERTY(EditDefaultsOnly, Category = Setup)
+    UPROPERTY(EditDefaultsOnly, Category = "Setup")
     float MaxDegreesPerSecond = 10;
     
-    UPROPERTY(EditDefaultsOnly, Category = Setup)
+    UPROPERTY(EditDefaultsOnly, Category = "Setup")
     float MaxElevationDegrees = 40;
     
-    UPROPERTY(EditDefaultsOnly, Category = Setup)
+    UPROPERTY(EditDefaultsOnly, Category = "Setup")
     float MinElevationDegrees = 0;
 
     
